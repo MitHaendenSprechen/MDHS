@@ -12,54 +12,43 @@
         body {
             margin: 0;
             padding: 0;
-            /* Hier den Namen deiner Adobe-Schriftart eintragen */
             font-family: 'Crayonize', sans-serif;
             background-color: #ffffff;
             color: #333333;
             display: flex;
             flex-direction: column;
-            min-height: 100vh; /* Sorgt dafür, dass der Footer immer unten bleibt */
+            min-height: 100vh;
         }
 
-        /* Responsive Bilder für Header und Footer */
+        /* Macht Header- und Footer-Bilder automatisch responsive */
         header img, footer img {
             width: 100%;
             height: auto;
             display: block;
         }
 
-        /* Hauptinhalt formatieren */
         main {
-            flex: 1; /* Nimmt den restlichen Platz ein, schiebt Footer nach unten */
-            padding: 20px; /* Abstand zum Bildschirmrand auf dem Handy */
+            flex: 1;
+            padding: 20px;
             text-align: center;
         }
 
-        /* Text Styling */
         h1 {
             font-size: 1.5rem;
             margin-bottom: 10px;
         }
-        p {
-            font-size: 1rem;
-            line-height: 1.5;
-            margin-bottom: 30px;
-        }
 
-        /* Responsive Video von Cloudinary */
+        /* Container für das responsive Video */
         .video-container {
-            <div class="video-container">
-        <video controls playsinline>
-        <source src="https://player.cloudinary.com/embed/?cloud_name=dxdxby61x&public_id=IMG_1177_ddydry" type="video/mp4">
-        Dein Browser unterstützt das Video leider nicht.
-        </video>
-</div>
+            width: 100%;
+            max-width: 500px; 
+            margin: 0 auto;
         }
         
         video {
             width: 100%;
             height: auto;
-            border-radius: 8px; /* Optionale abgerundete Ecken für einen modernen Look */
+            border-radius: 8px;
         }
     </style>
 </head>
@@ -74,7 +63,7 @@
     
         <div class="video-container">
             <video controls playsinline>
-                <source src="https://player.cloudinary.com/embed/?cloud_name=dxdxby61x&public_id=IMG_1177_ddydry" type="video/mp4">
+                <source src="https://res.cloudinary.com/dxdxby61x/video/upload/q_auto/f_auto/v1780046903/IMG_1177_ddydry.mp4" type="video/mp4">
                 Dein Browser unterstützt das Video leider nicht.
             </video>
         </div>
