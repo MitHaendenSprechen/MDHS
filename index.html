@@ -86,6 +86,17 @@
             </video>
         </div>
     </main>
+    
+    <script>
+        // Wir suchen das Video auf der Seite
+        const video = document.getElementById('myVideo');
+        
+        // Wir lauschen auf einen Klick (oder Tippen auf dem Handy)
+        video.addEventListener('click', function() {
+            // Sobald geklickt wird, fügen wir die Bedienleiste (controls) hinzu
+            this.setAttribute('controls', 'controls');
+        });
+    </script>
 
 </body>
 </html>
