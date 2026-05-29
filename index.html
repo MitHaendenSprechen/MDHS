@@ -8,60 +8,70 @@
     <link rel="stylesheet" href="https://use.typekit.net/xwt6ozx.css">
 
     <style>
-        /* Basis-Styling */
-        body {
+        /* Sichert ab, dass es KEINE Ränder gibt und nichts scrollt */
+        body, html {
             margin: 0;
             padding: 0;
+            width: 100%;
+            height: 100vh; /* Die Seite ist exakt so hoch wie der Bildschirm */
+            overflow: hidden; /* Schaltet das Scrollen komplett ab */
             font-family: 'Crayonize', sans-serif;
             background-color: #ffffff;
-            color: #ffffff;
+            display: flex;
+            flex-direction: column;
         }
 
-        /* Der Header-Container wird relativ positioniert, damit sich der Text daran ausrichtet */
+        /* Der Header geht bis ganz an den Rand */
         header {
             position: relative;
             width: 100%;
-            margin-bottom: 40px; /* Erzeugt einen schönen Abstand zum Video darunter */
+            margin: 0;
+            flex-shrink: 0; /* Verhindert, dass der Header gequetscht wird */
         }
 
         header img {
             width: 100%;
-            height: auto;
-            display: block;
+            display: block; /* Entfernt den unsichtbaren Abstand unter Bildern */
         }
 
-        /* Das "Danke" wird jetzt fest über das Bild gelegt */
+        /* Das "Danke" perfekt über dem Header-Bild zentriert */
         h1 {
             position: absolute;
-            top: 45%; /* Bestimmt die Höhe auf dem Bild (kleinerer Wert = höher, z.B. 35%) */
+            top: 40%; /* Schiebt das Danke etwas nach oben/unten. Wenn es nicht passt, ändere diese Zahl (z.B. 45% oder 50%) */
             left: 50%;
             transform: translate(-50%, -50%);
             margin: 0;
-            
-            /* Macht die Schriftart perfekt responsive für jede Bildschirmgröße */
-            font-size: clamp(2.5rem, 11vw, 5rem);
+            color: #ffffff; /* Weiße Schrift für Kontrast zum blauen Header */
+            font-size: clamp(3rem, 15vw, 6rem); /* Passt sich fließend an die Bildschirmgröße an */
             text-align: center;
-            width: 90%; /* Verhindert, dass Text am Rand klebt */
-            
-            /* Tipp: Falls dein Bild sehr unruhig ist, kannst du die nächste Zeile aktivieren (einfach die Schrägstriche am Anfang löschen) */
-            /* text-shadow: 2px 2px 4px rgba(0,0,0,0.3); */
         }
 
+        /* Hauptbereich: Zieht das Video nach oben */
         main {
-            padding: 20px;
-            text-align: center;
+            flex: 1; /* Füllt den gesamten restlichen Platz unter dem Header */
+            display: flex;
+            justify-content: center; /* Zentriert das Video in der Mitte */
+            align-items: flex-start; /* flex-start drückt das Video ganz nach oben an den Header! */
+            width: 100%;
+            padding-top: 15px; /* Ein minimaler Abstand zwischen Header und Video */
+            box-sizing: border-box;
         }
 
-        /* Container für das responsive Video */
+        /* Video Container und Video selbst */
         .video-container {
             width: 100%;
-            max-width: 500px; 
-            margin: 0 auto;
+            max-width: 500px;
+            height: 100%; 
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; 
         }
-        
+
         video {
             width: 100%;
-            height: auto;
+            /* WICHTIG: Das Video verkleinert sich automatisch, damit man nicht scrollen muss */
+            max-height: 95%; 
+            object-fit: contain; 
             border-radius: 8px;
         }
     </style>
@@ -76,7 +86,6 @@
     <main>
         <div class="video-container">
             <video controls playsinline>
-                <source src="https://res.cloudinary.com/dxdxby61x/video/upload/q_auto/f_auto/v1780046903/IMG_1177_ddydry.mp4" type="video/quicktime">
                 <source src="https://res.cloudinary.com/dxdxby61x/video/upload/q_auto/f_auto/v1780046903/IMG_1177_ddydry.mp4" type="video/mp4">
                 Dein Browser unterstützt das Video leider nicht.
             </video>
