@@ -8,34 +8,48 @@
     <link rel="stylesheet" href="https://use.typekit.net/xwt6ozx.css">
 
     <style>
-        /* Basis-Styling für Mobile First */
+        /* Basis-Styling */
         body {
             margin: 0;
             padding: 0;
             font-family: 'Crayonize', sans-serif;
             background-color: #ffffff;
             color: #333333;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
         }
 
-        /* Macht Header- und Footer-Bilder automatisch responsive */
-        header img, footer img {
+        /* Der Header-Container wird relativ positioniert, damit sich der Text daran ausrichtet */
+        header {
+            position: relative;
+            width: 100%;
+            margin-bottom: 40px; /* Erzeugt einen schönen Abstand zum Video darunter */
+        }
+
+        header img {
             width: 100%;
             height: auto;
             display: block;
         }
 
-        main {
-            flex: 1;
-            padding: 20px;
+        /* Das "Danke" wird jetzt fest über das Bild gelegt */
+        h1 {
+            position: absolute;
+            top: 45%; /* Bestimmt die Höhe auf dem Bild (kleinerer Wert = höher, z.B. 35%) */
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin: 0;
+            
+            /* Macht die Schriftart perfekt responsive für jede Bildschirmgröße */
+            font-size: clamp(2.5rem, 11vw, 5rem);
             text-align: center;
+            width: 90%; /* Verhindert, dass Text am Rand klebt */
+            
+            /* Tipp: Falls dein Bild sehr unruhig ist, kannst du die nächste Zeile aktivieren (einfach die Schrägstriche am Anfang löschen) */
+            /* text-shadow: 2px 2px 4px rgba(0,0,0,0.3); */
         }
 
-        h1 {
-            font-size: 5rem;
-            margin-bottom: 10px;
+        main {
+            padding: 20px;
+            text-align: center;
         }
 
         /* Container für das responsive Video */
@@ -56,25 +70,18 @@
 
     <header>
         <img src="header.png" alt="Kopfzeile">
+        <h1>Danke</h1>
     </header>
 
     <main>
-        <h1>Danke</h1>
-    
-
-<div class="video-container">
+        <div class="video-container">
             <video controls playsinline>
-                 <source src="https://res.cloudinary.com/dxdxby61x/video/upload/q_auto/f_auto/v1780046903/IMG_1177_ddydry.mp4" type="video/quicktime">
+                <source src="https://res.cloudinary.com/dxdxby61x/video/upload/q_auto/f_auto/v1780046903/IMG_1177_ddydry.mp4" type="video/quicktime">
                 <source src="https://res.cloudinary.com/dxdxby61x/video/upload/q_auto/f_auto/v1780046903/IMG_1177_ddydry.mp4" type="video/mp4">
                 Dein Browser unterstützt das Video leider nicht.
             </video>
         </div>
-
     </main>
-
-    <footer>
-        <img src="footer.png" alt="Fußzeile">
-    </footer>
 
 </body>
 </html>
