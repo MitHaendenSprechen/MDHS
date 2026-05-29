@@ -14,8 +14,7 @@
             width: 100%;
             min-height: 100vh; 
             font-family: 'Crayonize', sans-serif;
-            /* HIER IST DIE BLAUE FARBE FÜR DEN HINTERGRUND (z.B. der Rand oben) */
-            background-color: #497eac; 
+            background-color: #4A7A96; 
             display: flex;
             flex-direction: column;
         }
@@ -51,7 +50,6 @@
             width: 100%;
             padding: 15px 20px 30px 20px; 
             box-sizing: border-box;
-            /* HIER IST DER WEISSE HINTERGRUND FÜR ALLES UNTER DEM HEADER */
             background-color: #ffffff; 
         }
 
@@ -68,6 +66,9 @@
             max-height: 70vh; 
             object-fit: contain; 
             border-radius: 8px;
+            cursor: pointer; 
+            /* Verhindert, dass das Video beim Antippen auf dem Handy kurz grau aufblinkt */
+            -webkit-tap-highlight-color: transparent; 
         }
     </style>
 </head>
@@ -80,21 +81,24 @@
 
     <main>
         <div class="video-container">
-            <video autoplay loop muted playsinline controls>
+            <video id="myVideo" autoplay loop muted playsinline>
                 <source src="https://res.cloudinary.com/dxdxby61x/video/upload/q_auto/f_auto/v1780046903/IMG_1177_ddydry.mp4" type="video/mp4">
                 Dein Browser unterstützt das Video leider nicht.
             </video>
         </div>
     </main>
-    
+
     <script>
-        // Wir suchen das Video auf der Seite
         const video = document.getElementById('myVideo');
         
-        // Wir lauschen auf einen Klick (oder Tippen auf dem Handy)
         video.addEventListener('click', function() {
-            // Sobald geklickt wird, fügen wir die Bedienleiste (controls) hinzu
-            this.setAttribute('controls', 'controls');
+            // Falls das Video auf dem Handy wegen Stromsparmodus gar nicht erst gestartet ist, starten wir es jetzt:
+            if (video.paused) {
+                video.play();
+            }
+            
+            // Schalte den Ton bei jedem Tippen abwechselnd an und aus
+            video.muted = !video.muted;
         });
     </script>
 
