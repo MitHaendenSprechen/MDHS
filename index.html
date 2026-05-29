@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DANKE</title>
+
+    <link rel="stylesheet" href="https://use.typekit.net/xwt6ozx.css">
+
+    <style>
+        /* Basis-Styling für Mobile First */
+        body {
+            margin: 0;
+            padding: 0;
+            /* Hier den Namen deiner Adobe-Schriftart eintragen */
+            font-family: 'Crayonize', sans-serif;
+            background-color: #ffffff;
+            color: #333333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Sorgt dafür, dass der Footer immer unten bleibt */
+        }
+
+        /* Responsive Bilder für Header und Footer */
+        header img, footer img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Hauptinhalt formatieren */
+        main {
+            flex: 1; /* Nimmt den restlichen Platz ein, schiebt Footer nach unten */
+            padding: 20px; /* Abstand zum Bildschirmrand auf dem Handy */
+            text-align: center;
+        }
+
+        /* Text Styling */
+        h1 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 1rem;
+            line-height: 1.5;
+            margin-bottom: 30px;
+        }
+
+        /* Responsive Video von Cloudinary */
+        .video-container {
+            width: 100%;
+            max-width: 600px; /* Verhindert, dass das Video auf großen Bildschirmen riesig wird */
+            margin: 0 auto; /* Zentriert das Video */
+        }
+        
+        video {
+            width: 100%;
+            height: auto;
+            border-radius: 8px; /* Optionale abgerundete Ecken für einen modernen Look */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="header.png" alt="Kopfzeile">
+    </header>
+
+    <main>
+        <h1>Danke</h1>
+    
+        <div class="video-container">
+            <video controls playsinline>
+                <source src="https://res.cloudinary.com/dxdxby61x/video/upload/q_auto/f_auto/v1780046903/IMG_1177_ddydry.mov" type="video/mov">
+                Dein Browser unterstützt das Video leider nicht.
+            </video>
+        </div>
+    </main>
+
+    <footer>
+        <img src="footer.png" alt="Fußzeile">
+    </footer>
+
+</body>
+</html>
