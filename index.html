@@ -26,34 +26,35 @@
             position: relative;
             width: 100%;
             margin: 0;
-            flex-shrink: 0; /* Verhindert, dass der Header gequetscht wird */
+            flex-shrink: 0; 
         }
 
         header img {
             width: 100%;
-            display: block; /* Entfernt den unsichtbaren Abstand unter Bildern */
+            display: block; 
         }
 
         /* Das "Danke" perfekt über dem Header-Bild zentriert */
         h1 {
             position: absolute;
-            top: 40%; /* Schiebt das Danke etwas nach oben/unten. Wenn es nicht passt, ändere diese Zahl (z.B. 45% oder 50%) */
+            top: 40%; 
             left: 50%;
             transform: translate(-50%, -50%);
             margin: 0;
-            color: #ffffff; /* Weiße Schrift für Kontrast zum blauen Header */
-            font-size: clamp(3rem, 15vw, 6rem); /* Passt sich fließend an die Bildschirmgröße an */
+            color: #ffffff; 
+            font-size: clamp(3rem, 15vw, 6rem); 
             text-align: center;
         }
 
-        /* Hauptbereich: Zieht das Video nach oben */
+        /* Hauptbereich mit Abstand zum Rand */
         main {
-            flex: 1; /* Füllt den gesamten restlichen Platz unter dem Header */
+            flex: 1; 
             display: flex;
-            justify-content: center; /* Zentriert das Video in der Mitte */
-            align-items: flex-start; /* flex-start drückt das Video ganz nach oben an den Header! */
+            justify-content: center; 
+            align-items: flex-start; 
             width: 100%;
-            padding-top: 15px; /* Ein minimaler Abstand zwischen Header und Video */
+            /* HIER IST DER NEUE RAND: 15px oben, 20px rechts, 30px unten (für die iOS-Balken), 20px links */
+            padding: 15px 20px 30px 20px; 
             box-sizing: border-box;
         }
 
@@ -69,8 +70,7 @@
 
         video {
             width: 100%;
-            /* WICHTIG: Das Video verkleinert sich automatisch, damit man nicht scrollen muss */
-            max-height: 95%; 
+            max-height: 100%; /* Durch das Padding im main-Bereich darf das Video hier jetzt auf 100% stehen */
             object-fit: contain; 
             border-radius: 8px;
         }
@@ -79,7 +79,7 @@
 <body>
 
     <header>
-        <img src="header.png" alt="Kopfzeile">
+        <img src="Header 2.png" alt="Kopfzeile">
         <h1>Danke</h1>
     </header>
 
