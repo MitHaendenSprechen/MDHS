@@ -8,20 +8,19 @@
     <link rel="stylesheet" href="https://use.typekit.net/xwt6ozx.css">
 
     <style>
-        /* Sichert ab, dass es KEINE Ränder gibt und nichts scrollt */
+        /* Scrollen ist wieder erlaubt! min-height sorgt dafür, dass die Seite 
+           mindestens einen vollen Bildschirm füllt, aber wachsen darf. */
         body, html {
             margin: 0;
             padding: 0;
             width: 100%;
-            height: 100vh; /* Die Seite ist exakt so hoch wie der Bildschirm */
-            overflow: hidden; /* Schaltet das Scrollen komplett ab */
+            min-height: 100vh; 
             font-family: 'Crayonize', sans-serif;
             background-color: #ffffff;
             display: flex;
             flex-direction: column;
         }
 
-        /* Der Header geht bis ganz an den Rand */
         header {
             position: relative;
             width: 100%;
@@ -34,7 +33,6 @@
             display: block; 
         }
 
-        /* Das "Danke" perfekt über dem Header-Bild zentriert */
         h1 {
             position: absolute;
             top: 40%; 
@@ -46,23 +44,19 @@
             text-align: center;
         }
 
-        /* Hauptbereich mit Abstand zum Rand */
         main {
             flex: 1; 
             display: flex;
             justify-content: center; 
             align-items: flex-start; 
             width: 100%;
-            /* HIER IST DER NEUE RAND: 15px oben, 20px rechts, 30px unten (für die iOS-Balken), 20px links */
             padding: 15px 20px 30px 20px; 
             box-sizing: border-box;
         }
 
-        /* Video Container und Video selbst */
         .video-container {
             width: 100%;
             max-width: 500px;
-            height: 100%; 
             display: flex;
             justify-content: center;
             align-items: flex-start; 
@@ -70,7 +64,9 @@
 
         video {
             width: 100%;
-            max-height: 100%; /* Durch das Padding im main-Bereich darf das Video hier jetzt auf 100% stehen */
+            /* HIER IST DER TRICK: Das Video darf maximal 70% der Bildschirmhöhe 
+               einnehmen. So passt Header + Video fast immer perfekt auf einen Blick. */
+            max-height: 70vh; 
             object-fit: contain; 
             border-radius: 8px;
         }
